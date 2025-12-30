@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* X3 Brand Colors - Professional Blue Palette */
+    --background: 210 20% 98%;
+    --foreground: 215 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 15%;
+
+    /* Deep Navy Blue - Primary */
+    --primary: 210 60% 25%;
+    --primary-foreground: 210 20% 98%;
+
+    /* Light Blue Gray */
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 210 60% 25%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Cyan Accent - From Logo */
+    --accent: 195 90% 50%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 195 90% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom X3 Tokens */
+    --x3-navy: 210 60% 20%;
+    --x3-navy-light: 210 50% 30%;
+    --x3-cyan: 195 90% 50%;
+    --x3-cyan-light: 195 85% 60%;
+    --x3-gradient: linear-gradient(135deg, hsl(210 60% 25%) 0%, hsl(195 90% 50%) 100%);
+    --x3-gradient-subtle: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 25% 95%) 100%);
+    --x3-glow: 0 0 40px hsl(195 90% 50% / 0.3);
+    --x3-shadow: 0 20px 50px -15px hsl(210 60% 20% / 0.15);
+    --x3-shadow-lg: 0 30px 60px -20px hsl(210 60% 20% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 50% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 45% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 45% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 195 90% 50%;
+    --primary-foreground: 215 50% 8%;
+
+    --secondary: 215 40% 18%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 195 85% 55%;
+    --accent-foreground: 215 50% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 40% 20%;
+    --input: 215 40% 20%;
+    --ring: 195 90% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--x3-gradient);
+  }
+
+  .bg-gradient-x3 {
+    background-image: var(--x3-gradient);
+  }
+
+  .shadow-x3 {
+    box-shadow: var(--x3-shadow);
+  }
+
+  .shadow-x3-lg {
+    box-shadow: var(--x3-shadow-lg);
+  }
+
+  .glow-x3 {
+    box-shadow: var(--x3-glow);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(195 90% 50% / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(195 90% 50% / 0.4);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
