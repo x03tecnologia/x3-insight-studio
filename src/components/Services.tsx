@@ -4,7 +4,8 @@ import {
   Database, 
   Cog, 
   BarChart3, 
-  Palette 
+  Palette,
+  Monitor 
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
