@@ -4,7 +4,8 @@ import {
   Database, 
   Cog, 
   BarChart3, 
-  Palette 
+  Palette,
+  Monitor 
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -38,6 +39,11 @@ const services = [
     icon: Palette,
     title: "Information Design",
     description: "Design de informação estratégico para comunicar dados de forma clara, impactante e acessível.",
+  },
+  {
+    icon: Monitor,
+    title: "Desenvolvimento de Apps & Sistemas",
+    description: "Criação de aplicações web, mobile e sistemas sob medida para otimizar operações e impulsionar o crescimento do seu negócio.",
   },
 ];
 
