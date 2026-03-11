@@ -31,7 +31,7 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Visualização & Information Design",
+    title: "Visualização de Dados",
     description: "Dashboards interativos, relatórios visuais e design de informação estratégico para comunicar dados de forma clara e impactante.",
   },
   {
