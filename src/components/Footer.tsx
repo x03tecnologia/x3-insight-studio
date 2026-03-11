@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <img
-              src={logoX3}
+              src={logoX3Footer}
               alt="X3 Tecnologia"
               className="h-12 w-auto object-contain mb-4"
             />
