@@ -59,7 +59,7 @@ const Services = () => {
           </h2>
           <p className="text-muted-foreground text-lg">
             Oferecemos um portfólio completo de serviços para transformar 
-            a maneira como sua empresa trabalha com dados.
+            a maneira como sua empresa trabalha com dados e tecnologia.
           </p>
         </div>
 
