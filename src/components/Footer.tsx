@@ -16,7 +16,7 @@ const Footer = () => {
             />
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed">
               Transformamos dados em decisões estratégicas. Consultoria especializada 
-              em Ciência de Dados, IA e Engenharia de Dados.
+              em Ciência de Dados, IA, Engenharia de Dados, Automações e Desenvolvimento de Apps e Sistemas.
             </p>
           </div>
 
@@ -59,6 +59,7 @@ const Footer = () => {
               <li className="text-primary-foreground/70 text-sm">Agentes de IA</li>
               <li className="text-primary-foreground/70 text-sm">Engenharia de Dados</li>
               <li className="text-primary-foreground/70 text-sm">Automações</li>
+              <li className="text-primary-foreground/70 text-sm">Desenvolvimento de Apps e Sistemas</li>
             </ul>
           </div>
         </div>
