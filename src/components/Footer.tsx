@@ -1,4 +1,4 @@
-import logoX3 from "@/assets/logo-x3.png";
+import logoX3Footer from "@/assets/logo-x3-footer.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
