@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
 
           {/* Stats/Icons */}
-          <div className="grid grid-cols-3 gap-8 mt-20 max-w-lg mx-auto animate-fade-in-up animation-delay-600">
+          <div className="grid grid-cols-4 gap-8 mt-20 max-w-xl mx-auto animate-fade-in-up animation-delay-600">
             <div className="flex flex-col items-center gap-3 group">
               <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
                 <Database className="h-6 w-6 text-accent" />
@@ -87,6 +87,12 @@ const Hero = () => {
                 <BarChart3 className="h-6 w-6 text-accent" />
               </div>
               <span className="text-xs text-muted-foreground font-medium">Analytics</span>
+            </div>
+            <div className="flex flex-col items-center gap-3 group">
+              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
+                <Monitor className="h-6 w-6 text-accent" />
+              </div>
+              <span className="text-xs text-muted-foreground font-medium">Apps & Sistemas</span>
             </div>
           </div>
         </div>
