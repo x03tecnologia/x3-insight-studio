@@ -4,7 +4,6 @@ import {
   Database, 
   Cog, 
   BarChart3, 
-  Palette,
   Monitor 
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,13 +31,8 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Visualização de Dados",
-    description: "Dashboards interativos e relatórios visuais que transformam dados complexos em insights claros.",
-  },
-  {
-    icon: Palette,
-    title: "Information Design",
-    description: "Design de informação estratégico para comunicar dados de forma clara, impactante e acessível.",
+    title: "Visualização & Information Design",
+    description: "Dashboards interativos, relatórios visuais e design de informação estratégico para comunicar dados de forma clara e impactante.",
   },
   {
     icon: Monitor,
