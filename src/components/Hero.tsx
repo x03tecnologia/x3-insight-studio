@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, Bot, Database } from "lucide-react";
+import { ArrowRight, BarChart3, Bot, Database, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
