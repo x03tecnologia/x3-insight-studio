@@ -59,6 +59,7 @@ const Footer = () => {
               <li className="text-primary-foreground/70 text-sm">Agentes de IA</li>
               <li className="text-primary-foreground/70 text-sm">Engenharia de Dados</li>
               <li className="text-primary-foreground/70 text-sm">Automações</li>
+              <li className="text-primary-foreground/70 text-sm">Desenvolvimento de Apps e Sistemas</li>
             </ul>
           </div>
         </div>
