@@ -43,7 +43,7 @@ const Hero = () => {
           {/* Subheadline */}
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-400">
             Especialistas em Ciência de Dados, Inteligência Artificial, 
-            Engenharia de Dados e Automações para impulsionar o seu negócio.
+            Engenharia de Dados, Automações e Desenvolvimento de Apps e Sistemas para impulsionar o seu negócio.
           </p>
 
           {/* CTA Buttons */}
