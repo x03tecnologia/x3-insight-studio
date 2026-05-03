@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import X3Agent from "@/components/X3Agent";
 import Services from "@/components/Services";
 import Differentials from "@/components/Differentials";
 import CTA from "@/components/CTA";
@@ -11,6 +12,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <X3Agent />
         <Services />
         <Differentials />
         <CTA />
