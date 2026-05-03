@@ -8,6 +8,7 @@ const Header = () => {
 
   const navLinks = [
     { href: "#inicio", label: "Início" },
+    { href: "#x3-agent", label: "X3 Agent" },
     { href: "#servicos", label: "Serviços" },
     { href: "#diferenciais", label: "Diferenciais" },
     { href: "#contato", label: "Contato" },
