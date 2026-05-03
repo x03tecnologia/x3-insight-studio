@@ -80,8 +80,8 @@ const X3Agent = () => {
           </h2>
 
           <p className="text-muted-foreground text-lg">
-            Conecte o <strong className="text-foreground font-semibold">X3 Agent</strong> ao seu banco e obtenha análises, relatórios e insights
-            em linguagem natural — sem precisar escrever uma linha de SQL.
+            Contrate o <strong className="text-foreground font-semibold">X3 Agent</strong> como seu analista sênior. Obtenha análises,
+            relatórios e insights em linguagem natural — em segundos e sem precisar escrever uma linha de código.
           </p>
         </div>
 
@@ -194,23 +194,6 @@ const X3Agent = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Database pills */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium mb-5">
-            Compatível com os principais bancos
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            {databases.map((db) => (
-              <span
-                key={db}
-                className="rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm text-foreground/80 font-medium"
-              >
-                {db}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* CTA */}
