@@ -46,6 +46,16 @@ const Footer = () => {
                   Contato
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://blog.x3tecnologia.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                >
+                  Blog
+                </a>
+              </li>
             </ul>
           </div>
 

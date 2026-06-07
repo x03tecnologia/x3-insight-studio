@@ -12,6 +12,7 @@ const Header = () => {
     { href: "#servicos", label: "Serviços" },
     { href: "#diferenciais", label: "Diferenciais" },
     { href: "#contato", label: "Contato" },
+    { href: "https://blog.x3tecnologia.com/", label: "Blog", external: true },
   ];
 
   return (
@@ -33,6 +34,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
               >
                 {link.label}
@@ -67,6 +69,7 @@ const Header = () => {
                 <a
                   key={link.href}
                   href={link.href}
+                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
