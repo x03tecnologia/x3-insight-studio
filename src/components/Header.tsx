@@ -34,6 +34,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
               >
                 {link.label}
