@@ -197,13 +197,23 @@ const X3Agent = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center items-center gap-4">
+          <a href="https://agent.x3tecnologia.com/" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-accent/40 bg-background/50 backdrop-blur-sm hover:bg-accent/10 hover:border-accent transition-all duration-300 px-8 py-6 text-base font-medium group"
+            >
+              <Sparkles className="mr-2 h-5 w-5 text-accent" />
+              Experimente nosso Agente para Demonstrações
+            </Button>
+          </a>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               className="bg-gradient-x3 hover:opacity-90 transition-all duration-300 px-8 py-6 text-base font-medium shadow-x3-lg group"
             >
-              Agendar demonstração
+              Fale com nossos Consultores
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </a>

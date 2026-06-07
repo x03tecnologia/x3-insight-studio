@@ -1,87 +1,26 @@
-## Nova seção: X3 Agent
+## Mudanças
 
-Criar `src/components/X3Agent.tsx` e inseri-lo em `src/pages/Index.tsx` **entre o Hero e o Services** — posição que mantém o fluxo: apresentação → produto destaque → portfólio de serviços.
+### 1. `src/components/X3Agent.tsx` — adicionar segundo CTA e renomear o atual
 
-### Estrutura visual da seção (top → bottom)
-
-1. **Eyebrow** — pill pequena com dot pulsante (mesmo padrão do badge do Hero): "Lançamento · Novo produto"
-2. **Headline** — foco em resultado, não em tecnologia:
-   "Pergunte aos seus dados. <span gradient>Receba respostas</span> em segundos."
-3. **Subtítulo (2 linhas)** — "Conecte o X3 Agent ao seu banco e obtenha análises, relatórios e insights em linguagem natural — sem precisar escrever uma linha de SQL."
-4. **Bloco de demo** — chat mockado com fundo escuro
-5. **3 cards de benefícios**
-6. **Linha de pills** com bancos compatíveis
-7. **CTA** "Agendar demonstração" → link WhatsApp já existente em `CTA.tsx`
-
-### Bloco de demo (chat com fundo escuro)
-
-Container `rounded-2xl` com `bg-[hsl(215_50%_8%)]` (mesmo tom do `--background` dark do design system) + borda sutil `border-white/10` + `shadow-x3-lg` + glow cyan.
-
-Layout interno:
-- Barra superior estilo "janela" com 3 dots (vermelho/amarelo/verde) e label "X3 Agent · conectado ao banco"
-- Bolha de mensagem do usuário (alinhada à direita, fundo `bg-white/5`):
-  > "Qual foi o faturamento por categoria no último trimestre?"
-- Bolha de resposta do agente (alinhada à esquerda, avatar com ícone Bot em gradient-x3):
-  - Texto curto: "No Q3/2025, o faturamento total foi R$ 1,84M, com destaque para Eletrônicos (+22% vs Q2)."
-  - **Mini gráfico de barras** renderizado em puro JSX/Tailwind (divs com `bg-gradient-to-t from-accent to-accent/40` e altura proporcional) — sem dependência nova. 4 barras: Eletrônicos R$ 720k, Moda R$ 480k, Casa R$ 360k, Outros R$ 280k. Eixo Y simples e labels abaixo.
-  - Linha de insight com ícone Sparkles: "Insight: Eletrônicos foi o único segmento com crescimento acima da meta."
-
-Cursor pulsante no fim da resposta para reforçar a sensação de "tempo real".
-
-### 3 cards de benefícios
-
-Grid `md:grid-cols-3 gap-6`, mesmo estilo dos cards de `Services.tsx` (Card com `bg-card/50 backdrop-blur-sm`, ícone em quadrado `bg-gradient-x3`):
-
-1. **MessageSquare** — "Perguntas em linguagem natural" — "Sem SQL, sem dashboards complexos. Pergunte como falaria com um analista."
-2. **Database** — "Conecta ao seu banco de dados" — "Integração segura e read-only com os principais SGBDs do mercado."
-3. **Sparkles** — "Insights automáticos" — "O agente identifica tendências, anomalias e oportunidades sem você pedir."
-
-### Linha de pills (bancos compatíveis)
-
-Label pequena centralizada: "Compatível com os principais bancos"
-Pills horizontais (flex-wrap, centralizadas) com `rounded-full border border-border bg-secondary/50 px-4 py-2 text-sm`:
-PostgreSQL · MySQL · BigQuery · Supabase · SQL Server · Snowflake · MongoDB · Oracle
-
-### CTA
-
-Botão único centralizado, mesmo estilo do CTA primário do Hero:
-`<a href="https://web.whatsapp.com/send?phone=5521965616062&text=Olá!%20Quero%20agendar%20uma%20demonstração%20do%20X3%20Agent." target="_blank">` com Button `bg-gradient-x3 size=lg` "Agendar demonstração" + ícone ArrowRight.
-
-### Detalhes técnicos
-
-- Arquivo: `src/components/X3Agent.tsx`, exportado default
-- `id="x3-agent"` na `<section>` para permitir âncora futura
-- Background da seção: `bg-gradient-to-b from-background to-secondary/20` (transição suave do Hero para Services)
-- Reusar utilities existentes: `text-gradient`, `bg-gradient-x3`, `shadow-x3-lg`, `animate-fade-in-up`, `animate-pulse-glow`
-- Ícones: `Bot`, `Database`, `MessageSquare`, `Sparkles`, `ArrowRight`, `BarChart3` de `lucide-react`
-- Sem novas dependências; gráfico feito com divs Tailwind
-- Editar `src/pages/Index.tsx` para inserir `<X3Agent />` entre `<Hero />` e `<Services />`
-- (Opcional, recomendado) adicionar item "X3 Agent" → `#x3-agent` no `navLinks` do `Header.tsx`
-
-### Diagrama de layout
+- Renomear o botão atual "Agendar demonstração" para **"Fale com nossos Consultores"** (mantém link WhatsApp atual e estilo gradient primário).
+- Adicionar um novo botão **"Experimente nosso Agente para Demonstrações"** que aponta para `https://agent.x3tecnologia.com/` (target=_blank).
+- Layout: dois botões lado a lado, centralizados, com `flex-wrap` para responsivo. O novo botão usa estilo `variant="outline"` com borda em accent e ícone `Sparkles` (ou `Bot`) para diferenciar visualmente do CTA primário sem competir com ele.
 
 ```text
-┌─────────────────────────────────────────┐
-│  • Lançamento · Novo produto            │
-│                                         │
-│        Headline com gradiente           │
-│        Subtítulo de 2 linhas            │
-│                                         │
-│  ┌───────────────────────────────────┐  │
-│  │ ● ● ●  X3 Agent · conectado       │  │
-│  │                                   │  │
-│  │            [pergunta usuário ▶]   │  │
-│  │  [🤖 resposta + gráfico barras]   │  │
-│  │      ▮ ▮ ▮ ▮  (Eletr/Moda/...)    │  │
-│  │  ✨ Insight: ...                   │  │
-│  └───────────────────────────────────┘  │
-│                                         │
-│  ┌────────┐ ┌────────┐ ┌────────┐       │
-│  │benef 1 │ │benef 2 │ │benef 3 │       │
-│  └────────┘ └────────┘ └────────┘       │
-│                                         │
-│  Postgres · MySQL · BigQuery · ...      │
-│                                         │
-│        [ Agendar demonstração → ]       │
-└─────────────────────────────────────────┘
+[ Experimente nosso Agente ✨ ]   [ Fale com nossos Consultores → ]
+       (outline / secondary)              (gradient primário)
 ```
+
+### 2. `src/components/CTA.tsx` — modernizar os cards de Email e WhatsApp
+
+Manter o conteúdo (email, telefone, links) e o fundo gradient da seção. Atualizar apenas o visual dos dois cards para um look mais moderno e premium:
+
+- **Glassmorphism refinado**: fundo `bg-primary-foreground/5` com `backdrop-blur-xl`, borda dupla (`border border-primary-foreground/15`) e leve highlight no topo via gradiente sutil.
+- **Hover elevado**: `hover:-translate-y-1`, sombra suave `hover:shadow-2xl`, borda passa a `border-primary-foreground/40`, e um glow radial sutil aparece atrás do card.
+- **Ícone com profundidade**: container do ícone com `bg-gradient-to-br from-primary-foreground/25 to-primary-foreground/5`, borda `border-primary-foreground/20`, ring sutil no hover, e mantém o scale-110.
+- **Tipografia hierárquica**: título alinhado à esquerda (não centralizado), subtítulo `text-primary-foreground/70`, valor (email/telefone) em destaque com `font-medium` e `text-primary-foreground/90`.
+- **CTA inline mais limpo**: link "Enviar mensagem" / "Iniciar conversa" com underline animado on hover (`after:` pseudo-elemento) e seta com translate.
+- **Pequeno badge de status** no canto superior direito de cada card: pílula discreta com dot pulsante — "Resposta em até 24h" no Email e "Online agora" no WhatsApp — para reforçar conversão.
+- Padding aumentado (`p-7 sm:p-8`), bordas `rounded-3xl`, transições suaves `duration-500`.
+
+Sem mudanças em outros componentes, sem novas dependências.
