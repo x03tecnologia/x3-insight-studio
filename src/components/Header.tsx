@@ -12,6 +12,7 @@ const Header = () => {
     { href: "#servicos", label: "Serviços" },
     { href: "#diferenciais", label: "Diferenciais" },
     { href: "#contato", label: "Contato" },
+    { href: "https://blog.x3tecnologia.com/", label: "Blog", external: true },
   ];
 
   return (
