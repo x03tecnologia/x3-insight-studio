@@ -1,4 +1,5 @@
 import { ArrowRight, Mail, Phone } from "lucide-react";
+// ArrowRight kept for WhatsApp card
 
 const CTA = () => {
   return (
@@ -25,14 +26,11 @@ const CTA = () => {
           {/* Contact Cards */}
           <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Email Card */}
-            <a
-              href="mailto:x03.tecnologia@gmail.com"
-              className="group relative p-7 sm:p-8 rounded-3xl bg-primary-foreground/5 backdrop-blur-xl border border-primary-foreground/15 hover:border-primary-foreground/40 hover:-translate-y-1 hover:shadow-2xl hover:bg-primary-foreground/10 transition-all duration-500 text-left overflow-hidden"
+            <div
+              className="group relative p-7 sm:p-8 rounded-3xl bg-primary-foreground/5 backdrop-blur-xl border border-primary-foreground/15 transition-all duration-500 text-left overflow-hidden"
             >
               {/* Top highlight */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-foreground/40 to-transparent" />
-              {/* Glow */}
-              <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-primary-foreground/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               {/* Status badge */}
               <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-foreground/10 border border-primary-foreground/15 text-[10px] font-medium text-primary-foreground/80">
@@ -40,20 +38,13 @@ const CTA = () => {
                 Resposta em até 24h
               </div>
 
-              <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-foreground/25 to-primary-foreground/5 border border-primary-foreground/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:ring-2 group-hover:ring-primary-foreground/20 transition-all duration-500">
+              <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-foreground/25 to-primary-foreground/5 border border-primary-foreground/20 flex items-center justify-center mb-6 transition-all duration-500">
                 <Mail className="h-6 w-6 text-primary-foreground" />
               </div>
 
               <h3 className="text-primary-foreground font-semibold text-lg mb-1.5">Email</h3>
-              <p className="text-primary-foreground/90 text-sm font-medium mb-5 break-all">x03.tecnologia@gmail.com</p>
-
-              <div className="inline-flex items-center text-primary-foreground/80 text-sm font-medium group-hover:text-primary-foreground transition-colors">
-                <span className="relative after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-primary-foreground group-hover:after:w-full after:transition-all after:duration-300">
-                  Enviar mensagem
-                </span>
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </a>
+              <p className="text-primary-foreground/90 text-sm font-medium break-all">x03.tecnologia@gmail.com</p>
+            </div>
 
             {/* WhatsApp Card */}
             <a
