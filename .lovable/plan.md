@@ -1,41 +1,24 @@
-# Plano: Seção de Logos de Clientes
+## Adicionar logos dos clientes
 
-## O que será feito
+Vou subir as 4 logos como Lovable Assets (CDN) e adicioná-las à array `clients` no componente `src/components/Clients.tsx`, sem links.
 
-Criar uma nova seção na landing page entre **Serviços** e **Por que nos escolher** (exatamente no espaço marcado em vermelho no print), exibindo as logos dos clientes em **grade estática centralizada**.
+### Logos a adicionar
+1. Zane — fundo claro, logo verde
+2. Kebab Shop — fundo branco, logo preto
+3. Atelier dos Sabores — fundo preto, logo branco
+4. Oakberry — fundo branco, logo roxo
 
-## Estrutura da seção
+### Tratamento visual
+Como as logos têm fundos diferentes (algumas claras, Atelier com fundo preto), vou ajustar o container de cada card para usar fundo branco uniforme (`bg-white`) com leve padding, de modo que todas as logos fiquem visualmente consistentes na grade — independentemente do tema (claro/escuro) do site. Isso evita que a logo do Atelier "suma" em fundo escuro, ou que logos pretas fiquem ilegíveis.
 
-- **Eyebrow** (pequeno texto azul em maiúsculas): `NOSSOS CLIENTES`
-- **Título principal**: `Empresas que já transformamos`
-- **Subtítulo curto**: frase de apoio (ex: *"Marcas que confiam na X3 Tecnologia para impulsionar seus resultados com dados e IA."*)
-- **Grade de logos** centralizada:
-  - Desktop: 4 a 5 logos por linha
-  - Tablet: 3 por linha
-  - Mobile: 2 por linha
-  - Cada logo em um "container" com altura uniforme, padding consistente e alinhamento central, garantindo que logos de proporções diferentes fiquem visualmente equilibradas
-  - Leve hover (sutil elevação ou aumento de opacidade) para dar vida sem distrair
+Hover effects existentes (border highlight, leve elevação) são mantidos.
 
-## Como enviar as logos
+### Mudanças técnicas
+1. Upload das 4 imagens via `lovable-assets create` a partir de `/mnt/user-uploads/`, gerando `.asset.json` em `src/assets/clients/`.
+2. Importar os 4 pointers no topo de `src/components/Clients.tsx`.
+3. Substituir a array `clients` vazia/placeholder por 4 entradas `{ name, logo }` (sem `website`).
+4. Ajustar o container da logo para `bg-white` com padding adequado, garantindo contraste para todas.
+5. Remover o estado "placeholder vazio" já que agora há logos.
 
-Você pode me enviar **uma a uma** nas próximas mensagens. Para cada logo, me diga:
-1. **Nome da empresa** (para alt text e SEO)
-2. **Site oficial** (opcional — se quiser que a logo seja clicável)
-
-Vou aceitar qualquer formato (PNG, JPG, SVG, com ou sem fundo). Para manter consistência visual, vou:
-- Padronizar todas com a mesma altura máxima
-- Centralizar dentro de cards de tamanho uniforme
-- Se vierem com fundos diferentes, aplicar um leve tratamento (ex: fundo branco sutil ou container neutro) para que fiquem harmônicas
-
-## Detalhes técnicos
-
-- Criar `src/components/Clients.tsx` com a grade responsiva (Tailwind grid + tokens semânticos do design system, sem cores hardcoded)
-- Inserir `<Clients />` em `src/pages/Index.tsx` entre `<Services />` e `<WhyUs />` (ou o nome equivalente do componente "Por que nos escolher")
-- Cada logo enviada será armazenada via **Lovable Assets** (CDN) através de `lovable-assets create`, gerando pointers `.asset.json` em `src/assets/clients/` — mantém o repositório leve
-- Array de clientes no topo do componente para facilitar adicionar/remover/reordenar no futuro
-
-## Fluxo sugerido
-
-1. Você aprova este plano
-2. Eu já crio a seção com a estrutura pronta (sem logos ainda, ou com placeholders)
-3. Você me envia as logos uma a uma — eu vou adicionando ao array conforme chegam
+### Próximos passos
+Quando vier a próxima leva de logos, basta enviar — adiciono no mesmo padrão.
