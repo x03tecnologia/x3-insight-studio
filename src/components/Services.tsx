@@ -17,7 +17,7 @@ const services = [
   {
     icon: Bot,
     title: "Agentes de IA",
-    description: "Desenvolvimento de agentes inteligentes e chatbots personalizados para automatizar processos complexos.",
+    description: "Desenvolvimento de agentes inteligentes e personalizados para automatizar processos complexos.",
   },
   {
     icon: Database,

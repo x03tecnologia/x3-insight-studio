@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary py-12 sm:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Logo & Description */}
           <div className="md:col-span-2">
             <img
@@ -56,20 +56,6 @@ const Footer = () => {
                   Blog
                 </a>
               </li>
-            </ul>
-          </div>
-
-          {/* Serviços */}
-          <div>
-            <h4 className="text-primary-foreground font-semibold mb-4">
-              Serviços
-            </h4>
-            <ul className="space-y-3">
-              <li className="text-primary-foreground/70 text-sm">Ciência de Dados</li>
-              <li className="text-primary-foreground/70 text-sm">Agentes de IA</li>
-              <li className="text-primary-foreground/70 text-sm">Engenharia de Dados</li>
-              <li className="text-primary-foreground/70 text-sm">Automações</li>
-              <li className="text-primary-foreground/70 text-sm">Desenvolvimento de Apps e Sistemas</li>
             </ul>
           </div>
         </div>
