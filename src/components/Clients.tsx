@@ -1,8 +1,13 @@
-// Lista de clientes — adicione novas logos ao array conforme forem enviadas.
-// Cada item: { name, logo (url do .asset.json), website? (opcional, torna a logo clicável) }
-const clients: Array<{ name: string; logo: string; website?: string }> = [
-  // Exemplo (substituir conforme as logos forem enviadas):
-  // { name: "Empresa X", logo: empresaXLogo.url, website: "https://empresax.com" },
+import zaneLogo from "@/assets/clients/zane.jpeg.asset.json";
+import kebabShopLogo from "@/assets/clients/kebab-shop.png.asset.json";
+import atelierLogo from "@/assets/clients/atelier-dos-sabores.jpg.asset.json";
+import oakberryLogo from "@/assets/clients/oakberry.png.asset.json";
+
+const clients: Array<{ name: string; logo: string }> = [
+  { name: "Zane", logo: zaneLogo.url },
+  { name: "Kebab Shop", logo: kebabShopLogo.url },
+  { name: "Atelier dos Sabores", logo: atelierLogo.url },
+  { name: "Oakberry", logo: oakberryLogo.url },
 ];
 
 const Clients = () => {
@@ -21,40 +26,21 @@ const Clients = () => {
           </p>
         </div>
 
-        {clients.length === 0 ? (
-          <div className="text-center text-muted-foreground/70 text-sm italic">
-            Em breve, as logos dos nossos clientes aparecerão aqui.
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {clients.map((client) => {
-              const content = (
-                <div className="h-24 md:h-28 flex items-center justify-center p-4 md:p-6 rounded-xl bg-card border border-border/60 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5">
-                  <img
-                    src={client.logo}
-                    alt={`Logo ${client.name}`}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-              );
-
-              return client.website ? (
-                <a
-                  key={client.name}
-                  href={client.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visitar site de ${client.name}`}
-                >
-                  {content}
-                </a>
-              ) : (
-                <div key={client.name}>{content}</div>
-              );
-            })}
-          </div>
-        )}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+          {clients.map((client) => (
+            <div
+              key={client.name}
+              className="h-28 md:h-32 flex items-center justify-center p-5 md:p-6 rounded-xl bg-white border border-border/60 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
+            >
+              <img
+                src={client.logo}
+                alt={`Logo ${client.name}`}
+                loading="lazy"
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
