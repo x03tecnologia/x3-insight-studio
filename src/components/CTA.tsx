@@ -43,7 +43,7 @@ const CTA = () => {
               </div>
 
               <h3 className="text-primary-foreground font-semibold text-lg mb-1.5">Email</h3>
-              <p className="text-primary-foreground/90 text-sm font-medium break-all">x03.tecnologia@gmail.com</p>
+              <p className="text-primary-foreground/90 text-sm font-medium break-all">gestao@x3tecnologia.com</p>
             </div>
 
             {/* WhatsApp Card */}
