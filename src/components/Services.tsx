@@ -1,6 +1,6 @@
 import { 
   Brain, 
-  Bot, 
+  Target, 
   Database, 
   Cog, 
   BarChart3, 
@@ -11,13 +11,13 @@ import { Card, CardContent } from "@/components/ui/card";
 const services = [
   {
     icon: Brain,
-    title: "Ciência de Dados",
-    description: "Análises preditivas, machine learning e insights estratégicos para tomada de decisões baseadas em dados.",
+    title: "Ciência de Dados & Agentes de IA",
+    description: "Análises preditivas, machine learning e agentes inteligentes para gerar insights estratégicos e automatizar processos complexos.",
   },
   {
-    icon: Bot,
-    title: "Agentes de IA",
-    description: "Desenvolvimento de agentes inteligentes e personalizados para automatizar processos complexos.",
+    icon: Target,
+    title: "Web Analytics e Tagueamento",
+    description: "Implementação de GA4, pixels e eventos personalizados para medir, entender e otimizar a performance dos seus canais digitais.",
   },
   {
     icon: Database,
