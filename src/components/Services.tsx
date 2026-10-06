@@ -1,6 +1,6 @@
 import { 
   Brain, 
-  Bot, 
+  Target, 
   Database, 
   Cog, 
   BarChart3, 
@@ -15,7 +15,7 @@ const services = [
     description: "Análises preditivas, machine learning e agentes inteligentes para gerar insights estratégicos e automatizar processos complexos.",
   },
   {
-    icon: BarChart3,
+    icon: Target,
     title: "Web Analytics e Tagueamento",
     description: "Implementação de GA4, pixels e eventos personalizados para medir, entender e otimizar a performance dos seus canais digitais.",
   },
