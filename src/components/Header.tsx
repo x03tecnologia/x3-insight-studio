@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoX3 from "@/assets/logo-x3.png";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { solutionAreas } from "@/data/solutions";
 import {
   NavigationMenu,
@@ -15,6 +16,11 @@ import {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   const navLinks = [
     { href: "/#expertise", label: "Expertise" },

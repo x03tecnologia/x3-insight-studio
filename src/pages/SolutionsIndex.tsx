@@ -1,9 +1,22 @@
+import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTA from "@/components/CTA";
 import { solutionAreas } from "@/data/solutions";
 
-const SolutionsIndex = () => (
+const SolutionsIndex = () => {
+  useEffect(() => {
+    document.title = "Soluções de Tecnologia | X3 Tecnologia";
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const previousDescription = meta?.content;
+    meta?.setAttribute("content", "Cloud, DevOps, software, UX/UI, gestão, qualidade, dados, IA e segurança conectados aos desafios do seu negócio.");
+    return () => {
+      document.title = "X3 Tecnologia | Software, Cloud, Segurança e Analytics";
+      if (previousDescription) meta?.setAttribute("content", previousDescription);
+    };
+  }, []);
+
+  return (
   <main className="pt-16 md:pt-20">
     <section className="bg-x3-dark py-20 text-primary-foreground sm:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,6 +59,7 @@ const SolutionsIndex = () => (
     </section>
     <CTA />
   </main>
-);
+  );
+};
 
 export default SolutionsIndex;

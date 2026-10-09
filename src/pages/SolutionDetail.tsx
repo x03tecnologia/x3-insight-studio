@@ -15,9 +15,11 @@ const SolutionDetail = () => {
     const title = `${solution.title} | X3 Tecnologia`;
     document.title = title;
     const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const previousDescription = meta?.content;
     meta?.setAttribute("content", solution.summary);
     return () => {
       document.title = "X3 Tecnologia | Software, Cloud, Segurança e Analytics";
+      if (previousDescription) meta?.setAttribute("content", previousDescription);
     };
   }, [solution]);
 
