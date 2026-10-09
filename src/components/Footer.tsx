@@ -15,7 +15,7 @@ const Footer = () => {
               className="h-12 w-auto object-contain mb-4"
             />
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed">
-              Parceira de tecnologia para construir, operar, proteger e evoluir negócios com software, cloud, segurança, automação, analytics e talentos especializados.
+              Parceira de tecnologia para construir, operar, proteger e evoluir negócios com software, UX/UI, cloud, DevOps, segurança, dados, IA e equipes especializadas.
             </p>
           </div>
 
@@ -26,27 +26,27 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="#inicio" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <a href="/#inicio" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
                   Início
                 </a>
               </li>
               <li>
-                <a href="#expertise" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <a href="/#expertise" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
                   Expertise
                 </a>
               </li>
               <li>
-                <a href="#servicos" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <a href="/solucoes" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
                   Soluções
                 </a>
               </li>
               <li>
-                <a href="#x3-agent" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <a href="/#x3-agent" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
                   X3 Agent
                 </a>
               </li>
               <li>
-                <a href="#contato" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                <a href="/#contato" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
                   Contato
                 </a>
               </li>

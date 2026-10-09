@@ -1,43 +1,6 @@
-import { ArrowUpRight, BarChart3, Bot, Boxes, CloudCog, ShieldCheck, UsersRound } from "lucide-react";
-
-const services = [
-  {
-    icon: Boxes,
-    title: "Produtos Digitais & SaaS",
-    description: "Criamos plataformas, aplicações e produtos digitais que nascem prontos para evoluir com o negócio.",
-    details: "Estratégia de produto · UX/UI · Desenvolvimento · Evolução contínua",
-  },
-  {
-    icon: Bot,
-    title: "Automação & IA",
-    description: "Redesenhamos fluxos e conectamos sistemas para reduzir esforço manual e acelerar operações complexas.",
-    details: "Agentes inteligentes · Integrações · RPA · Workflows",
-  },
-  {
-    icon: CloudCog,
-    title: "Cloud, Infraestrutura & Backup",
-    description: "Estruturamos ambientes resilientes, escaláveis e preparados para manter sua operação sempre disponível.",
-    details: "Arquitetura · Migração · Operação · Continuidade e recuperação",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Segurança da Informação",
-    description: "Protegemos sistemas, dados e acessos com uma abordagem orientada a risco, governança e continuidade.",
-    details: "Diagnóstico · Proteção · Governança · Resposta a riscos",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics & Dados",
-    description: "Transformamos dados em clareza para decisões melhores, com mensuração confiável e inteligência aplicada.",
-    details: "Web Analytics · Engenharia · Visualização · Ciência de Dados",
-  },
-  {
-    icon: UsersRound,
-    title: "Talentos & Squads X3",
-    description: "Integramos especialistas ou times multidisciplinares à sua operação para acelerar entregas e ampliar capacidades.",
-    details: "Profissionais sob demanda · Squads dedicados · Gestão próxima",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { solutionAreas } from "@/data/solutions";
 
 const Services = () => {
   return (
@@ -50,26 +13,39 @@ const Services = () => {
             <h2 className="section-title mt-5 max-w-2xl">Capacidades que conectam estratégia à execução.</h2>
           </div>
           <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
-            Tecnologia não funciona em silos. Por isso, combinamos competências para resolver o desafio completo do seu negócio.
+            Da infraestrutura à experiência, da governança à inteligência: combinamos competências para resolver o desafio completo.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid border-l border-t border-border md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+        <div className="border-t border-border">
+          {solutionAreas.map((area, index) => (
             <article
-              key={service.title}
-              className="group min-h-[330px] border-b border-r border-border bg-card p-7 transition-colors duration-300 hover:bg-background sm:p-8"
+              key={area.id}
+              className="group grid gap-8 border-b border-border py-9 lg:grid-cols-[0.12fr_0.33fr_0.55fr] lg:items-start"
             >
-              <div className="flex items-start justify-between">
-                <service.icon className="h-8 w-8 text-accent" />
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent" />
+              <div className="flex items-center gap-4">
+                <span className="text-xs font-semibold text-accent">0{index + 1}</span>
+                <area.icon className="h-6 w-6 text-accent lg:hidden" />
               </div>
-              <h3 className="mt-14 text-2xl font-semibold">{service.title}</h3>
-              <p className="mt-4 leading-relaxed text-muted-foreground">{service.description}</p>
-              <p className="mt-6 border-t border-border pt-4 text-xs font-medium text-foreground/70">{service.details}</p>
+              <div>
+                <area.icon className="hidden h-7 w-7 text-accent lg:block" />
+                <h3 className="mt-0 text-2xl font-semibold lg:mt-7">{area.name}</h3>
+                <p className="mt-3 max-w-sm leading-relaxed text-muted-foreground">{area.description}</p>
+              </div>
+              <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                {area.solutions.map((solution) => (
+                  <Link key={solution.slug} to={`/solucoes/${solution.slug}`} className="flex items-center justify-between border-b border-border py-3 text-sm font-medium text-foreground transition-colors hover:text-accent">
+                    {solution.shortTitle} <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ))}
+                <Link to={`/solucoes#${area.id}`} className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">Explorar esta área <ArrowRight className="h-4 w-4" /></Link>
+              </div>
             </article>
           ))}
+        </div>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-5 border-l-2 border-accent bg-card p-6">
+          <div><p className="font-semibold text-foreground">Cloud nas plataformas que sua operação exige.</p><p className="mt-1 text-sm text-muted-foreground">Atuamos com ambientes Microsoft Azure, Amazon Web Services e Google Cloud Platform.</p></div>
+          <div className="flex flex-wrap gap-2"><span className="border border-border px-3 py-2 text-xs font-semibold">Azure</span><span className="border border-border px-3 py-2 text-xs font-semibold">AWS</span><span className="border border-border px-3 py-2 text-xs font-semibold">GCP</span></div>
         </div>
       </div>
     </section>
