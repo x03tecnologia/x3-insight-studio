@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary py-12 sm:py-16">
+    <footer className="bg-x3-dark py-12 sm:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Logo & Description */}
@@ -15,9 +15,7 @@ const Footer = () => {
               className="h-12 w-auto object-contain mb-4"
             />
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed">
-              Transformamos dados em decisões estratégicas. Consultoria especializada 
-              em Ciência de Dados, IA, Engenharia de Dados, Automações, Web Analytics 
-              e Desenvolvimento de Apps e Sistemas.
+              Parceira de tecnologia para construir, operar, proteger e evoluir negócios com software, cloud, segurança, automação, analytics e talentos especializados.
             </p>
           </div>
 
@@ -33,13 +31,18 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#servicos" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
-                  Serviços
+                <a href="#expertise" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  Expertise
                 </a>
               </li>
               <li>
-                <a href="#diferenciais" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
-                  Diferenciais
+                <a href="#servicos" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  Soluções
+                </a>
+              </li>
+              <li>
+                <a href="#x3-agent" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  X3 Agent
                 </a>
               </li>
               <li>

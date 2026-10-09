@@ -12,25 +12,23 @@ const clients: Array<{ name: string; logo: string }> = [
 
 const Clients = () => {
   return (
-    <section id="clientes" className="py-20 md:py-28 bg-background">
+    <section id="clientes" className="bg-background py-20 md:py-28">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Nossos Clientes
-          </p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
-            Empresas que já transformamos
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground">
-            Marcas que confiam na X3 Tecnologia para impulsionar seus resultados com dados e IA.
+        <div className="mb-12 grid gap-6 md:mb-16 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="section-label">Relações de confiança</p>
+            <h2 className="section-title mt-5">Tecnologia que avança junto com cada negócio.</h2>
+          </div>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
+            Empresas que escolheram a X3 para transformar desafios em soluções digitais consistentes.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 border-l border-t border-border md:grid-cols-4">
           {clients.map((client) => (
             <div
               key={client.name}
-              className="h-28 md:h-32 flex items-center justify-center p-5 md:p-6 rounded-xl bg-white border border-border/60 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5"
+              className="flex h-32 items-center justify-center border-b border-r border-border bg-card p-6 grayscale transition-all duration-300 hover:grayscale-0 md:h-40 md:p-8"
             >
               <img
                 src={client.logo}
