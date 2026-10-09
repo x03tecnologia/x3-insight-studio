@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoX3 from "@/assets/logo-x3.png";
 
@@ -7,16 +7,16 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#inicio", label: "Início" },
+    { href: "#servicos", label: "Soluções" },
+    { href: "#expertise", label: "Expertise" },
     { href: "#x3-agent", label: "X3 Agent" },
-    { href: "#servicos", label: "Serviços" },
-    { href: "#diferenciais", label: "Diferenciais" },
+    { href: "#clientes", label: "Clientes" },
     { href: "#contato", label: "Contato" },
     { href: "https://blog.x3tecnologia.com/", label: "Blog", external: true },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+    <header className={`fixed left-0 right-0 top-0 z-50 border-b border-border/60 backdrop-blur-xl ${isMenuOpen ? "bg-background" : "bg-background/90"}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -29,13 +29,13 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden items-center gap-6 lg:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
+                className="text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -43,44 +43,42 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <a href="#contato">
-              <Button variant="default" className="bg-gradient-x3 hover:opacity-90 transition-opacity">
-                Fale Conosco
-              </Button>
-            </a>
+          <div className="hidden lg:block">
+            <Button asChild className="h-11 px-5">
+              <a href="#contato">Fale com a X3 <ArrowUpRight /></a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
+          <div className="border-t border-border bg-background py-4 animate-fade-in lg:hidden">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
+                  className="py-2 text-sm font-medium text-foreground transition-colors duration-300 hover:text-primary"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <a href="#contato" onClick={() => setIsMenuOpen(false)}>
-                <Button variant="default" className="bg-gradient-x3 mt-2 w-full">
-                  Fale Conosco
-                </Button>
-              </a>
+              <Button asChild className="mt-2 w-full">
+                <a href="#contato" onClick={() => setIsMenuOpen(false)}>Fale com a X3</a>
+              </Button>
             </nav>
           </div>
         )}

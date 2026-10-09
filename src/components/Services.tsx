@@ -1,94 +1,74 @@
-import { 
-  Brain, 
-  Target, 
-  Database, 
-  Cog, 
-  BarChart3, 
-  Monitor 
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight, BarChart3, Bot, Boxes, CloudCog, ShieldCheck, UsersRound } from "lucide-react";
 
 const services = [
   {
-    icon: Brain,
-    title: "Ciência de Dados & Agentes de IA",
-    description: "Análises preditivas, machine learning e agentes inteligentes para gerar insights estratégicos e automatizar processos complexos.",
+    icon: Boxes,
+    title: "Produtos Digitais & SaaS",
+    description: "Criamos plataformas, aplicações e produtos digitais que nascem prontos para evoluir com o negócio.",
+    details: "Estratégia de produto · UX/UI · Desenvolvimento · Evolução contínua",
   },
   {
-    icon: Target,
-    title: "Web Analytics e Tagueamento",
-    description: "Implementação de GA4, pixels e eventos personalizados para medir, entender e otimizar a performance dos seus canais digitais.",
+    icon: Bot,
+    title: "Automação & IA",
+    description: "Redesenhamos fluxos e conectamos sistemas para reduzir esforço manual e acelerar operações complexas.",
+    details: "Agentes inteligentes · Integrações · RPA · Workflows",
   },
   {
-    icon: Database,
-    title: "Engenharia de Dados",
-    description: "Arquitetura de dados robusta, pipelines ETL e infraestrutura escalável para seus projetos.",
+    icon: CloudCog,
+    title: "Cloud, Infraestrutura & Backup",
+    description: "Estruturamos ambientes resilientes, escaláveis e preparados para manter sua operação sempre disponível.",
+    details: "Arquitetura · Migração · Operação · Continuidade e recuperação",
   },
   {
-    icon: Cog,
-    title: "Automações",
-    description: "Automatização de processos repetitivos, integrações e workflows para aumentar a eficiência operacional.",
+    icon: ShieldCheck,
+    title: "Segurança da Informação",
+    description: "Protegemos sistemas, dados e acessos com uma abordagem orientada a risco, governança e continuidade.",
+    details: "Diagnóstico · Proteção · Governança · Resposta a riscos",
   },
   {
     icon: BarChart3,
-    title: "Visualização de Dados",
-    description: "Dashboards interativos, relatórios visuais e design de informação estratégico para comunicar dados de forma clara e impactante.",
+    title: "Analytics & Dados",
+    description: "Transformamos dados em clareza para decisões melhores, com mensuração confiável e inteligência aplicada.",
+    details: "Web Analytics · Engenharia · Visualização · Ciência de Dados",
   },
   {
-    icon: Monitor,
-    title: "Desenvolvimento de Apps & Sistemas",
-    description: "Criação de aplicações web, mobile e sistemas sob medida para otimizar operações e impulsionar o crescimento do seu negócio.",
+    icon: UsersRound,
+    title: "Talentos & Squads X3",
+    description: "Integramos especialistas ou times multidisciplinares à sua operação para acelerar entregas e ampliar capacidades.",
+    details: "Profissionais sob demanda · Squads dedicados · Gestão próxima",
   },
 ];
 
 const Services = () => {
   return (
-    <section id="servicos" className="py-24 sm:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background -z-10" />
-
+    <section id="servicos" className="bg-secondary/45 py-20 sm:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-accent font-medium text-sm uppercase tracking-wider">
-            Nossos Serviços
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Soluções completas em{" "}
-            <span className="text-gradient">dados e tecnologia</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Oferecemos um portfólio completo de serviços para transformar 
-            a maneira como sua empresa trabalha com dados e tecnologia.
+        <div className="mb-14 grid gap-6 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="section-label">Nossas soluções</p>
+            <h2 className="section-title mt-5 max-w-2xl">Capacidades que conectam estratégia à execução.</h2>
+          </div>
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground lg:justify-self-end">
+            Tecnologia não funciona em silos. Por isso, combinamos competências para resolver o desafio completo do seu negócio.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <Card
+        <div className="grid border-l border-t border-border md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <article
               key={service.title}
-              className="group bg-card/50 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-500 hover:shadow-x3 overflow-hidden"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group min-h-[330px] border-b border-r border-border bg-card p-7 transition-colors duration-300 hover:bg-background sm:p-8"
             >
-              <CardContent className="p-6 sm:p-8">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-x3 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <service.icon className="h-7 w-7 text-primary-foreground" />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-accent transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Hover Accent Line */}
-                <div className="h-1 w-0 bg-gradient-x3 mt-6 rounded-full group-hover:w-16 transition-all duration-500" />
-              </CardContent>
-            </Card>
+              <div className="flex items-start justify-between">
+                <service.icon className="h-8 w-8 text-accent" />
+                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent" />
+              </div>
+              <h3 className="mt-14 text-2xl font-semibold">{service.title}</h3>
+              <p className="mt-4 leading-relaxed text-muted-foreground">{service.description}</p>
+              <p className="mt-6 border-t border-border pt-4 text-xs font-medium text-foreground/70">{service.details}</p>
+            </article>
           ))}
         </div>
       </div>

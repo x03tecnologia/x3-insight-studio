@@ -65,7 +65,9 @@ export default {
           "navy-light": "hsl(var(--x3-navy-light))",
           cyan: "hsl(var(--x3-cyan))",
           "cyan-light": "hsl(var(--x3-cyan-light))",
+          dark: "hsl(var(--x3-dark))",
         },
+        status: "hsl(var(--status))",
       },
       borderRadius: {
         lg: "var(--radius)",

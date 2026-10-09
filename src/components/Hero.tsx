@@ -1,103 +1,58 @@
-import { ArrowRight, BarChart3, Bot, Database, Monitor } from "lucide-react";
+import { ArrowRight, Cloud, Code2, ShieldCheck, BarChart3, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/x3-technology-hero.jpg";
+
+const capabilities = [
+  { icon: Code2, label: "Software & SaaS" },
+  { icon: Cloud, label: "Cloud" },
+  { icon: ShieldCheck, label: "Segurança" },
+  { icon: BarChart3, label: "Analytics" },
+  { icon: UsersRound, label: "Talentos" },
+];
 
 const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+      className="relative min-h-[92vh] overflow-hidden bg-hero pt-20 text-primary-foreground"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-accent/5 to-transparent rounded-full" />
-      </div>
+      <img src={heroImage} alt="Equipe de tecnologia em um ambiente corporativo moderno" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover object-center" />
+      <div className="absolute inset-0 bg-hero-overlay" />
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 -z-10 opacity-[0.03]" 
-           style={{
-             backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px)`,
-             backgroundSize: '60px 60px'
-           }} 
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8 animate-fade-in-up">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm text-muted-foreground font-medium">
-              Consultoria em Tecnologia e Dados
-            </span>
-          </div>
+      <div className="container relative z-10 mx-auto flex min-h-[calc(92vh-5rem)] flex-col justify-end px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
+        <div className="max-w-4xl py-16 lg:py-20">
+          <p className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase text-accent">
+            <span className="h-px w-10 bg-accent" /> Parceira de evolução tecnológica
+          </p>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up animation-delay-200">
-            Transformamos{" "}
-            <span className="text-gradient">dados</span>
-            <br />
-            em decisões estratégicas
+          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl">
+            Tecnologia para construir, proteger e <span className="text-accent">escalar</span> o seu negócio.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-400">
-            Especialistas em Ciência de Dados, Inteligência Artificial, 
-            Engenharia de Dados, Automações e Desenvolvimento de Apps e Sistemas para impulsionar o seu negócio.
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/75 sm:text-xl">
+            Da estratégia à operação, conectamos software, cloud, segurança, automação, analytics e especialistas para fazer sua empresa avançar.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-600">
-            <a href="#contato">
-              <Button
-                size="lg"
-                className="bg-gradient-x3 hover:opacity-90 transition-all duration-300 px-8 py-6 text-base font-medium shadow-x3-lg group"
-              >
-                Iniciar Projeto
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
-            <a href="#servicos">
-              <Button
-                variant="outline"
-                size="lg"
-                className="px-8 py-6 text-base font-medium border-primary/20 hover:bg-primary/5"
-              >
-                Conhecer Serviços
-              </Button>
-            </a>
-          </div>
-
-          {/* Stats/Icons */}
-          <div className="grid grid-cols-4 gap-8 mt-20 max-w-xl mx-auto animate-fade-in-up animation-delay-600">
-            <div className="flex flex-col items-center gap-3 group">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
-                <Database className="h-6 w-6 text-accent" />
-              </div>
-              <span className="text-xs text-muted-foreground font-medium">Dados</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 group">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
-                <Bot className="h-6 w-6 text-accent" />
-              </div>
-              <span className="text-xs text-muted-foreground font-medium">IA</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 group">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
-                <BarChart3 className="h-6 w-6 text-accent" />
-              </div>
-              <span className="text-xs text-muted-foreground font-medium">Analytics</span>
-            </div>
-            <div className="flex flex-col items-center gap-3 group">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
-                <Monitor className="h-6 w-6 text-accent" />
-              </div>
-              <span className="text-xs text-muted-foreground font-medium">Apps & Sistemas</span>
-            </div>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" className="h-13 px-7 text-base">
+              <a href="#servicos">Conheça nossas soluções <ArrowRight /></a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="h-13 border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <a href="#contato">Fale com especialistas</a>
+            </Button>
           </div>
         </div>
+        <div className="grid grid-cols-2 border-t border-primary-foreground/20 pt-6 sm:grid-cols-5">
+          {capabilities.map(({ icon: Icon, label }) => (
+            <div key={label} className="flex items-center gap-2 py-2 text-sm text-primary-foreground/70">
+              <Icon className="h-4 w-4 text-accent" /> {label}
+            </div>
+          ))}
+        </div>
       </div>
-
     </section>
   );
 };
