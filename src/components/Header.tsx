@@ -16,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-xl">
+    <header className={`fixed left-0 right-0 top-0 z-50 border-b border-border/60 backdrop-blur-xl ${isMenuOpen ? "bg-background" : "bg-background/90"}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -63,14 +63,14 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="border-t border-border py-4 animate-fade-in lg:hidden">
+          <div className="border-t border-border bg-background py-4 animate-fade-in lg:hidden">
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
+                  className="py-2 text-sm font-medium text-foreground transition-colors duration-300 hover:text-primary"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
