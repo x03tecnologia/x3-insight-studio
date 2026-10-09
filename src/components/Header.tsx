@@ -52,7 +52,7 @@ const Header = () => {
                     Soluções
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[min(1060px,calc(100vw-3rem))] bg-popover p-7">
+                    <div className="w-[min(780px,calc(100vw-2rem))] bg-popover p-5">
                       <div className="mb-6 flex items-end justify-between border-b border-border pb-5">
                         <div>
                           <p className="text-xs font-semibold uppercase text-accent">Portfólio X3</p>
@@ -62,7 +62,7 @@ const Header = () => {
                           <Link to="/solucoes" className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">Ver todas <ArrowUpRight className="h-4 w-4" /></Link>
                         </NavigationMenuLink>
                       </div>
-                      <div className="grid grid-cols-5 gap-6">
+                      <div className="grid grid-cols-5 gap-4">
                         {solutionAreas.map((area) => (
                           <div key={area.id}>
                             <div className="flex items-center gap-2 text-sm font-semibold text-foreground"><area.icon className="h-4 w-4 text-accent" />{area.name}</div>
