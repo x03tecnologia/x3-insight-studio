@@ -32,7 +32,7 @@ const Differentials = () => {
           <div>
             <p className="section-label">Por que a X3</p>
             <h2 className="mt-5 text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">A proximidade de quem entende. A capacidade de quem entrega.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-primary-foreground/65">Construímos relações duradouras com uma atuação prática, flexível e conectada ao que realmente move o negócio.</p>
+            <p className="mt-6 text-lg leading-relaxed text-primary-foreground/65">Reunimos estratégia, design, engenharia, operação e governança para assumir desafios complexos sem perder proximidade com o seu time.</p>
           </div>
 
           {/* Right Content - Cards */}

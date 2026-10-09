@@ -4,17 +4,17 @@ const pillars = [
   {
     number: "01",
     title: "Construir",
-    description: "Produtos digitais, plataformas SaaS e soluções sob medida que transformam ideias em operações reais.",
+    description: "UX/UI, software, plataformas SaaS e automações que transformam desafios em produtos e operações reais.",
   },
   {
     number: "02",
     title: "Operar",
-    description: "Cloud, infraestrutura, backup e segurança para manter ambientes disponíveis, protegidos e preparados.",
+    description: "Cloud, DevOps, gestão de TI, backup e segurança para manter ambientes disponíveis e preparados.",
   },
   {
     number: "03",
     title: "Evoluir",
-    description: "Analytics, automação e especialistas que ampliam capacidade, eficiência e inteligência de negócio.",
+    description: "Dados, IA, qualidade, gestão de projetos e especialistas que ampliam capacidade e inteligência de negócio.",
   },
 ];
 
