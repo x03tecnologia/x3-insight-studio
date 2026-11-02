@@ -41,8 +41,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/#x3-agent" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
-                  X3 Agent
+                <a href="/#pergunte-aos-dados" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  Pergunte aos Dados
                 </a>
               </li>
               <li>
