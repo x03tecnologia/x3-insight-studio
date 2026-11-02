@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import { ArrowRight, Bot, ChevronLeft, ChevronRight, Cloud, Code2, ShieldCheck, BarChart3, UsersRound, User } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Cloud, Code2, ShieldCheck, BarChart3, UsersRound } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/x3-technology-hero.jpg";
+import padLogo from "@/assets/pergunte-aos-dados-logo.webp.asset.json";
+import { PAD_URL, PadMockup } from "@/components/PergunteAosDados";
 
 const capabilities = [
   { icon: Code2, label: "Software & SaaS" },
@@ -11,46 +13,6 @@ const capabilities = [
   { icon: BarChart3, label: "Analytics" },
   { icon: UsersRound, label: "Talentos" },
 ];
-
-const bars = [
-  { label: "Sul", h: "100%", v: "R$ 640k" },
-  { label: "Sudeste", h: "82%", v: "R$ 525k" },
-  { label: "Nordeste", h: "55%", v: "R$ 350k" },
-  { label: "Centro", h: "40%", v: "R$ 255k" },
-];
-
-const AgentMockup = () => (
-  <div className="w-full border border-primary-foreground/15 bg-x3-dark/80 shadow-x3-lg backdrop-blur">
-    <div className="flex items-center justify-between border-b border-primary-foreground/10 px-5 py-3">
-      <div className="flex items-center gap-2 text-xs text-primary-foreground/60">
-        <span className="h-2 w-2 animate-pulse bg-status" /> X3 Agent · conectado aos seus dados
-      </div>
-      <Bot className="h-5 w-5 text-accent" />
-    </div>
-    <div className="space-y-5 p-5">
-      <div className="flex justify-end gap-3">
-        <div className="max-w-[85%] border border-primary-foreground/10 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground/85">
-          Quais regiões mais cresceram em vendas este mês?
-        </div>
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-primary-foreground/15"><User className="h-4 w-4 text-primary-foreground/60" /></div>
-      </div>
-      <div className="border-l-2 border-accent bg-primary-foreground/[0.04] p-4">
-        <p className="text-sm leading-relaxed text-primary-foreground/80">
-          O <strong className="text-primary-foreground">Sul</strong> liderou com crescimento de <span className="font-medium text-accent">18%</span>, seguido pelo Sudeste.
-        </p>
-        <div className="mt-5 grid h-32 grid-cols-4 items-end gap-3 border-b border-primary-foreground/10 pb-2">
-          {bars.map((b) => (
-            <div key={b.label} className="flex h-full flex-col justify-end gap-1 text-center">
-              <span className="text-[10px] text-primary-foreground/60">{b.v}</span>
-              <div className="w-full bg-accent/80" style={{ height: b.h }} />
-              <span className="text-[10px] text-primary-foreground/45">{b.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 const Hero = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -107,29 +69,30 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Slide 2 - X3 Agent */}
+          {/* Slide 2 - Pergunte aos Dados */}
           <div className="relative min-h-[92vh] min-w-0 shrink-0 basis-full bg-x3-dark" aria-roledescription="slide">
+            <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
             <div className="container relative z-10 mx-auto grid min-h-[calc(92vh-5rem)] items-center gap-12 px-4 py-16 pb-24 sm:px-6 lg:grid-cols-2 lg:px-8">
               <div>
-                <p className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase text-accent">
-                  <span className="h-px w-10 bg-accent" /> Produto X3 · X3 Agent
-                </p>
-                <h2 className="text-4xl font-semibold leading-[1.08] sm:text-5xl md:text-6xl">
+                <div className="inline-flex rounded-2xl bg-card px-4 py-3">
+                  <img src={padLogo.url} alt="Pergunte aos Dados" className="h-10 w-auto sm:h-12" />
+                </div>
+                <h2 className="mt-8 text-4xl font-semibold leading-[1.08] sm:text-5xl md:text-6xl">
                   Pergunte aos <span className="text-accent">dados</span>. Receba respostas.
                 </h2>
-                <p className="mt-7 max-w-xl text-lg leading-relaxed text-primary-foreground/75">
-                  O X3 Agent é seu analista sênior de IA: faça perguntas em linguagem natural e obtenha análises, relatórios e insights em segundos.
+                <p className="mt-6 max-w-xl text-lg text-primary-foreground/70">
+                  Conecte suas fontes e crie agentes de IA em linguagem natural.
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <Button asChild size="lg" className="h-13 px-7 text-base">
-                    <a href="https://agent.x3tecnologia.com/" target="_blank" rel="noopener noreferrer">Experimentar o X3 Agent <ArrowRight /></a>
+                  <Button asChild size="lg" className="h-12 bg-accent px-7 text-base text-accent-foreground hover:bg-accent/90">
+                    <a href={PAD_URL} target="_blank" rel="noopener noreferrer">Experimentar agora <ArrowRight /></a>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="h-13 border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-                    <a href="#x3-agent">Saiba mais</a>
+                  <Button asChild variant="outline" size="lg" className="h-12 border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                    <a href="#pergunte-aos-dados">Saiba mais</a>
                   </Button>
                 </div>
               </div>
-              <AgentMockup />
+              <div className="hidden lg:block"><PadMockup /></div>
             </div>
           </div>
         </div>
