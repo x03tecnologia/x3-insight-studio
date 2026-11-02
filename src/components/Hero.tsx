@@ -48,20 +48,20 @@ const Hero = () => {
                   Tecnologia para construir, proteger e <span className="text-accent">escalar</span> o seu negócio.
                 </h1>
                 <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/75 sm:text-xl">
-                  Da estratégia à operação, conectamos software, cloud, segurança, automação, analytics e especialistas para fazer sua empresa avançar.
+                  Software, cloud, segurança, dados e especialistas — da estratégia à operação.
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <Button asChild size="lg" className="h-13 px-7 text-base">
+                  <Button asChild size="lg" className="h-12 bg-accent px-7 text-base text-accent-foreground hover:bg-accent/90">
                     <a href="#servicos">Conheça nossas soluções <ArrowRight /></a>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="h-13 border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+                  <Button asChild variant="outline" size="lg" className="h-12 border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
                     <a href="#contato">Fale com especialistas</a>
                   </Button>
                 </div>
               </div>
-              <div className="grid grid-cols-2 border-t border-primary-foreground/20 pb-10 pt-6 sm:grid-cols-5">
+              <div className="hidden flex-wrap gap-2 pb-12 sm:flex">
                 {capabilities.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-2 py-2 text-sm text-primary-foreground/70">
+                  <div key={label} className="flex items-center gap-2 rounded-full border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-2 text-sm text-primary-foreground/75 backdrop-blur">
                     <Icon className="h-4 w-4 text-accent" /> {label}
                   </div>
                 ))}
@@ -100,13 +100,13 @@ const Hero = () => {
 
       {/* Controls */}
       <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-4">
-        <button aria-label="Slide anterior" onClick={() => emblaApi?.scrollPrev()} className="flex h-9 w-9 items-center justify-center border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+        <button aria-label="Slide anterior" onClick={() => emblaApi?.scrollPrev()} className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
           <ChevronLeft className="h-4 w-4" />
         </button>
         {[0, 1].map((i) => (
-          <button key={i} aria-label={`Ir para slide ${i + 1}`} onClick={() => emblaApi?.scrollTo(i)} className={`h-1 transition-all ${selected === i ? "w-10 bg-accent" : "w-5 bg-primary-foreground/40"}`} />
+          <button key={i} aria-label={`Ir para slide ${i + 1}`} onClick={() => emblaApi?.scrollTo(i)} className={`h-1.5 rounded-full transition-all ${selected === i ? "w-10 bg-accent" : "w-5 bg-primary-foreground/40"}`} />
         ))}
-        <button aria-label="Próximo slide" onClick={() => emblaApi?.scrollNext()} className="flex h-9 w-9 items-center justify-center border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+        <button aria-label="Próximo slide" onClick={() => emblaApi?.scrollNext()} className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
           <ChevronRight className="h-4 w-4" />
         </button>
       </div>
