@@ -24,7 +24,7 @@ const Header = () => {
 
   const navLinks = [
     { href: "/#expertise", label: "Expertise" },
-    { href: "/#x3-agent", label: "X3 Agent" },
+    { href: "/#pergunte-aos-dados", label: "Pergunte aos Dados" },
     { href: "/#clientes", label: "Clientes" },
     { href: "/#contato", label: "Contato" },
     { href: "https://blog.x3tecnologia.com/", label: "Blog", external: true },
