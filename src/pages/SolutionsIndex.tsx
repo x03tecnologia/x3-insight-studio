@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTA from "@/components/CTA";
 import { solutionAreas } from "@/data/solutions";
@@ -17,44 +17,41 @@ const SolutionsIndex = () => {
   }, []);
 
   return (
-  <main className="pt-16 md:pt-20">
-    <section className="bg-x3-dark py-20 text-primary-foreground sm:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+  <main className="bg-background pt-16 md:pt-20">
+    <section className="relative overflow-hidden py-16 text-center sm:py-24">
+      <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-accent/15 blur-3xl" />
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <p className="section-label">Soluções X3</p>
-        <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
-          Tecnologia conectada de ponta a ponta.
-        </h1>
-        <p className="mt-7 max-w-2xl text-lg leading-relaxed text-primary-foreground/65 sm:text-xl">
-          Cinco áreas de atuação que conectam estratégia, construção, operação, proteção e evolução tecnológica.
-        </p>
+        <h1 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">Tecnologia conectada de ponta a ponta.</h1>
+        <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">Cinco áreas, um único parceiro.</p>
       </div>
     </section>
 
-    <section className="bg-background py-20 sm:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-20">
-          {solutionAreas.map((area, areaIndex) => (
-            <div key={area.id} id={area.id} className="scroll-mt-28 grid gap-8 border-t border-border pt-10 lg:grid-cols-[0.38fr_0.62fr] lg:gap-16">
+    <section className="pb-20 sm:pb-28">
+      <div className="container mx-auto space-y-16 px-4 sm:px-6 lg:px-8">
+        {solutionAreas.map((area) => (
+          <div key={area.id} id={area.id} className="scroll-mt-28">
+            <div className="mb-6 flex items-center gap-4">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10"><area.icon className="h-6 w-6 text-accent" /></span>
               <div>
-                <span className="text-xs font-semibold text-accent">0{areaIndex + 1}</span>
-                <h2 className="mt-4 text-3xl font-semibold text-foreground">{area.name}</h2>
-                <p className="mt-4 max-w-sm leading-relaxed text-muted-foreground">{area.description}</p>
-              </div>
-              <div className="grid gap-px border border-border bg-border sm:grid-cols-2">
-                {area.solutions.map((solution) => (
-                  <Link key={solution.slug} to={`/solucoes/${solution.slug}`} className="group bg-card p-6 transition-colors hover:bg-secondary/60">
-                    <solution.icon className="h-6 w-6 text-accent" />
-                    <h3 className="mt-8 text-xl font-semibold text-foreground">{solution.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{solution.summary}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      Conhecer solução <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </Link>
-                ))}
+                <h2 className="text-2xl font-semibold text-foreground">{area.name}</h2>
+                <p className="text-sm text-muted-foreground">{area.description}</p>
               </div>
             </div>
-          ))}
-        </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {area.solutions.map((solution) => (
+                <Link key={solution.slug} to={`/solucoes/${solution.slug}`} className="group flex flex-col rounded-3xl bg-card p-6 shadow-x3 transition-all duration-300 hover:-translate-y-1 hover:shadow-x3-lg">
+                  <div className="flex items-start justify-between">
+                    <solution.icon className="h-6 w-6 text-accent" />
+                    <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-accent" />
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold text-foreground">{solution.title}</h3>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{solution.summary}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
     <CTA />

@@ -1,10 +1,8 @@
 import { useEffect } from "react";
-import { ArrowLeft, ArrowRight, Check, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, ChevronRight } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import CTA from "@/components/CTA";
 import { allSolutions, findSolution } from "@/data/solutions";
-
-const whatsappUrl = "https://web.whatsapp.com/send?phone=5521965616062&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20X3%20Tecnologia.";
 
 const SolutionDetail = () => {
   const { slug } = useParams();
@@ -12,8 +10,7 @@ const SolutionDetail = () => {
 
   useEffect(() => {
     if (!solution) return;
-    const title = `${solution.title} | X3 Tecnologia`;
-    document.title = title;
+    document.title = `${solution.title} | X3 Tecnologia`;
     const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     const previousDescription = meta?.content;
     meta?.setAttribute("content", solution.summary);
@@ -28,95 +25,80 @@ const SolutionDetail = () => {
   const related = allSolutions.filter((item) => item.areaId === solution.areaId && item.slug !== solution.slug).slice(0, 3);
 
   return (
-    <main className="pt-16 md:pt-20">
-      <section className="bg-x3-dark py-16 text-primary-foreground sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Caminho de navegação" className="flex flex-wrap items-center gap-2 text-xs text-primary-foreground/50">
-            <Link to="/" className="hover:text-primary-foreground">Início</Link>
+    <main className="bg-background pt-16 md:pt-20">
+      <section className="relative overflow-hidden py-16 sm:py-24">
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-accent/15 blur-3xl" />
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <nav aria-label="Caminho de navegação" className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <Link to="/" className="hover:text-foreground">Início</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link to="/solucoes" className="hover:text-primary-foreground">Soluções</Link>
+            <Link to="/solucoes" className="hover:text-foreground">Soluções</Link>
             <ChevronRight className="h-3 w-3" />
-            <span className="text-primary-foreground/80">{solution.areaName}</span>
+            <Link to={`/solucoes#${solution.areaId}`} className="hover:text-foreground">{solution.areaName}</Link>
           </nav>
-          <div className="mt-12 grid gap-12 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
+          <div className="mt-10 flex items-start gap-6">
+            <span className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-accent/10 sm:flex"><solution.icon className="h-8 w-8 text-accent" /></span>
             <div>
-              <p className="section-label">{solution.areaName}</p>
-              <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">{solution.title}</h1>
-              <p className="mt-7 max-w-3xl text-xl leading-relaxed text-primary-foreground/70">{solution.promise}</p>
+              <span className="inline-flex rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{solution.areaName}</span>
+              <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-foreground sm:text-5xl">{solution.title}</h1>
+              <p className="mt-5 max-w-2xl text-lg text-muted-foreground">{solution.promise}</p>
             </div>
-            <solution.icon className="hidden h-28 w-28 justify-self-end text-accent/80 lg:block" strokeWidth={1} />
           </div>
         </div>
       </section>
 
-      <section className="bg-background py-20 sm:py-28">
+      <section className="pb-20 sm:pb-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-[0.7fr_0.3fr] lg:gap-24">
-            <div>
-              <p className="section-label">O desafio</p>
-              <h2 className="section-title mt-5">Tecnologia aplicada ao contexto real da operação.</h2>
-              <p className="mt-7 max-w-3xl text-lg leading-relaxed text-muted-foreground">{solution.context}</p>
-            </div>
-            <aside className="border-l border-border pl-7">
-              <p className="text-xs font-semibold uppercase text-muted-foreground">Área de atuação</p>
-              <p className="mt-3 text-xl font-semibold text-foreground">{solution.areaName}</p>
-              <Link to="/solucoes" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">
-                <ArrowLeft className="h-4 w-4" /> Todas as soluções
-              </Link>
-            </aside>
+          <div className="rounded-3xl bg-card p-7 shadow-x3 sm:p-10">
+            <p className="section-label">O desafio</p>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-foreground/80">{solution.context}</p>
           </div>
 
-          <div className="mt-20 grid gap-px border border-border bg-border lg:grid-cols-2">
-            <div className="bg-card p-7 sm:p-10">
+          <div className="mt-5 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-3xl bg-card p-7 shadow-x3 sm:p-10">
               <p className="section-label">O que entregamos</p>
-              <ul className="mt-8 space-y-5">
+              <ul className="mt-6 space-y-4">
                 {solution.deliverables.map((item) => (
                   <li key={item} className="flex gap-3 text-foreground"><Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" /> {item}</li>
                 ))}
               </ul>
             </div>
-            <div className="bg-secondary/55 p-7 sm:p-10">
+            <div className="rounded-3xl bg-secondary/60 p-7 sm:p-10">
               <p className="section-label">Como trabalhamos</p>
-              <ol className="mt-8 space-y-5">
+              <ol className="mt-6 space-y-4">
                 {solution.approach.map((item, index) => (
                   <li key={item} className="flex items-center gap-4 text-foreground">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center border border-border bg-background text-xs font-semibold text-accent">0{index + 1}</span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-card text-xs font-semibold text-accent">{index + 1}</span>
                     {item}
                   </li>
                 ))}
               </ol>
             </div>
           </div>
-        </div>
-      </section>
 
-      {related.length > 0 && (
-        <section className="border-y border-border bg-secondary/35 py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="section-label">Soluções relacionadas</p>
-            <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-3">
-              {related.map((item) => (
-                <Link key={item.slug} to={`/solucoes/${item.slug}`} className="group bg-background p-6 transition-colors hover:bg-card">
-                  <item.icon className="h-5 w-5 text-accent" />
-                  <h3 className="mt-8 text-lg font-semibold">{item.title}</h3>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">Conhecer <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
-                </Link>
-              ))}
+          {related.length > 0 && (
+            <div className="mt-20">
+              <div className="flex items-end justify-between">
+                <h2 className="text-2xl font-semibold text-foreground">Soluções relacionadas</h2>
+                <Link to="/solucoes" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"><ArrowLeft className="h-4 w-4" /> Todas as soluções</Link>
+              </div>
+              <div className="mt-6 grid gap-5 md:grid-cols-3">
+                {related.map((item) => (
+                  <Link key={item.slug} to={`/solucoes/${item.slug}`} className="group flex items-center justify-between rounded-2xl bg-card p-6 shadow-x3 transition-all hover:-translate-y-1 hover:shadow-x3-lg">
+                    <span className="flex items-center gap-4">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10"><item.icon className="h-5 w-5 text-accent" /></span>
+                      <span className="font-semibold text-foreground">{item.shortTitle}</span>
+                    </span>
+                    <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-accent" />
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
-
-      <section className="bg-accent py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-            <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-accent-foreground sm:text-4xl">Vamos aplicar {solution.shortTitle} ao seu próximo desafio?</h2>
-            <Button asChild size="lg" className="h-12 bg-primary text-primary-foreground hover:bg-primary/90">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Fale com nossos consultores <ArrowRight /></a>
-            </Button>
-          </div>
+          )}
         </div>
       </section>
+
+      <CTA />
     </main>
   );
 };

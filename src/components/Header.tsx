@@ -5,21 +5,15 @@ import logoX3 from "@/assets/logo-x3.png";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { solutionAreas } from "@/data/solutions";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsSolutionsOpen(false);
   }, [pathname]);
 
   const navLinks = [
@@ -45,44 +39,48 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-5 lg:flex">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="h-10 bg-transparent px-2 text-sm text-muted-foreground hover:bg-transparent hover:text-foreground focus:bg-transparent data-[state=open]:bg-transparent data-[state=open]:text-foreground">
-                    Soluções
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="w-[min(780px,calc(100vw-2rem))] bg-popover p-5">
-                      <div className="mb-6 flex items-end justify-between border-b border-border pb-5">
-                        <div>
-                          <p className="text-xs font-semibold uppercase text-accent">Portfólio X3</p>
-                          <p className="mt-2 text-xl font-semibold text-foreground">Tecnologia conectada ao resultado.</p>
-                        </div>
-                        <NavigationMenuLink asChild>
-                          <Link to="/solucoes" className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">Ver todas <ArrowUpRight className="h-4 w-4" /></Link>
-                        </NavigationMenuLink>
+            <div
+              className="relative"
+              onMouseEnter={() => setIsSolutionsOpen(true)}
+              onMouseLeave={() => setIsSolutionsOpen(false)}
+              onKeyDown={(e) => e.key === "Escape" && setIsSolutionsOpen(false)}
+            >
+              <button
+                type="button"
+                aria-expanded={isSolutionsOpen}
+                onClick={() => setIsSolutionsOpen((v) => !v)}
+                className={`flex h-10 items-center gap-1 px-2 text-sm font-medium transition-colors hover:text-foreground ${isSolutionsOpen || pathname.startsWith("/solucoes") ? "text-foreground" : "text-muted-foreground"}`}
+              >
+                Soluções <ChevronDown className={`h-4 w-4 transition-transform ${isSolutionsOpen ? "rotate-180" : ""}`} />
+              </button>
+              {isSolutionsOpen && (
+                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3">
+                  <div className="w-[min(820px,calc(100vw-2rem))] rounded-3xl border border-border bg-popover p-6 shadow-x3-lg">
+                    <div className="mb-6 flex items-end justify-between border-b border-border pb-5">
+                      <div>
+                        <p className="text-xs font-semibold uppercase text-accent">Portfólio X3</p>
+                        <p className="mt-2 text-xl font-semibold text-foreground">Tecnologia conectada ao resultado.</p>
                       </div>
-                      <div className="grid grid-cols-5 gap-4">
-                        {solutionAreas.map((area) => (
-                          <div key={area.id}>
-                            <div className="flex items-center gap-2 text-sm font-semibold text-foreground"><area.icon className="h-4 w-4 text-accent" />{area.name}</div>
-                            <ul className="mt-4 space-y-3">
-                              {area.solutions.map((solution) => (
-                                <li key={solution.slug}>
-                                  <NavigationMenuLink asChild>
-                                    <Link to={`/solucoes/${solution.slug}`} className="block text-xs leading-snug text-muted-foreground transition-colors hover:text-foreground">{solution.shortTitle}</Link>
-                                  </NavigationMenuLink>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
+                      <Link to="/solucoes" onClick={() => setIsSolutionsOpen(false)} className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-accent">Ver todas <ArrowUpRight className="h-4 w-4" /></Link>
                     </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+                    <div className="grid grid-cols-5 gap-4">
+                      {solutionAreas.map((area) => (
+                        <div key={area.id}>
+                          <div className="flex items-center gap-2 text-sm font-semibold text-foreground"><area.icon className="h-4 w-4 text-accent" />{area.name}</div>
+                          <ul className="mt-4 space-y-3">
+                            {area.solutions.map((solution) => (
+                              <li key={solution.slug}>
+                                <Link to={`/solucoes/${solution.slug}`} onClick={() => setIsSolutionsOpen(false)} className={`block text-xs leading-snug transition-colors hover:text-foreground ${pathname === `/solucoes/${solution.slug}` ? "font-semibold text-accent" : "text-muted-foreground"}`}>{solution.shortTitle}</Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
             {navLinks.map((link) => (
               <a
                 key={link.href}
