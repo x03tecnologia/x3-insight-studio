@@ -11,7 +11,7 @@ const CTA = () => (
         <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">Qual é o próximo desafio da sua empresa?</h2>
         <p className="mt-5 text-lg text-primary-foreground/70">Conte com a X3 para transformar estratégia em execução.</p>
         <Button asChild size="lg" className="mt-9 h-12 bg-accent px-8 text-accent-foreground hover:bg-accent/90">
-          <a href="https://web.whatsapp.com/send?phone=5521965616062&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20X3%20Tecnologia." target="_blank" rel="noopener noreferrer">Fale com nossos consultores <ArrowRight /></a>
+          <a href="https://wa.me/5521965616062?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20X3%20Tecnologia." target="_blank" rel="noopener noreferrer">Fale com nossos consultores <ArrowRight /></a>
         </Button>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 text-sm text-primary-foreground/65 sm:flex-row sm:gap-8">
           <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-accent" /> gestao@x3tecnologia.com</span>
